@@ -1,0 +1,2 @@
+I have made this programme as a part of my python mini project 
+took inspiration from code with harry's jarvis and tried to make a voice activated library management system learning new stuff along the way :)

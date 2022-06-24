@@ -19,7 +19,7 @@ student_ids = dict({16010321005: 'Dhruv Bhagatkar',
                     16010321010: 'Yashvi Desai',
                     16010321011: 'Atharva Dhakate'})
 
-book_id=dict({123:'the beauty and the beast'})
+book_ids=dict({123:'the beauty and the beast'})
 
 def speak(audio):
     engine.say(audio)
@@ -34,7 +34,7 @@ def takecommand():
         print("Listening...")
         r.pause_threshold = 1
         audio = r.listen(source)
-
+        
         try:
             print("Recognizing...")
             query = r.recognize_google(audio, language='en-in')
@@ -63,6 +63,7 @@ def wishMe():
     speak("Welcome to the Library Management System What Do you Want to do today?")
 
 id_found=False
+bookid_found=False
 
 
 
@@ -76,21 +77,23 @@ if __name__ == '__main__':
                 student_id = int(input("Enter Student ID: "))
                 if student_id in student_ids:
                     print("ID Found!")
-                    id_found=True
+                    id_found=True 
                 else:
                     print("Enter Student ID again!")
                 while id_found==True:    
                     book_id=int(input("Enter Book ID: "))
-                    while student_id in student_ids:
+                    if book_id in book_ids:
+                        print("Book found!")
+                        bookid_found=True
+                    while student_id in student_ids and bookid_found==True:
                         print("book returned")
                         break
-                break
+                    break    
             break
-                
-                
-        elif 'Borrow Book ' in query:
-            print("Book Borrowed")
+        
+        if 'Boro book' in query:
+            student_id=int(input("enter student id: "))
 
-        elif 'Renew Book' in query:
+        if 'Renew Book' in query:
             print("renew Book")
 
