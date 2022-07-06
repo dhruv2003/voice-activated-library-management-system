@@ -1,16 +1,14 @@
-import speech_recognition as sr
-import datetime
-import pyttsx3
-import re 
+import speech_recognition as sr    #installed by pip install SpeechRecognition
+import datetime      #inbuilt module
+import pyttsx3          #installed by pip install pyttsx3
+import re               #regex module
 
-i = True
-engine = pyttsx3.init('sapi5')
-voices = engine.getProperty('voices')
-engine.setProperty('volume', 1.0)
-# print(voices[1].id)
-engine.setProperty('voice', voices[0].id)
+engine = pyttsx3.init('sapi5')  
+voices = engine.getProperty('voices')       #getting details of current voice   
+engine.setProperty('volume', 1.0)       #setting volume
+engine.setProperty('voice', voices[0].id)     #set voice 
 
-student_ids = dict({16010321005: 'Dhruv Bhagatkar',
+student_ids = dict({16010321005: 'Dhruv Bhagatkar',     #dict for student names
                     16010321006: 'Sharang Chandak',
                     16010321007: 'Aditya Chaudhari',
                     16010321008: 'Soham Chindarkar',
@@ -19,7 +17,7 @@ student_ids = dict({16010321005: 'Dhruv Bhagatkar',
                     16010321011: 'Atharva Dhakate',
                     16010321088:'Bheemika Soni'})
 
-book_ids=dict({456:'the beauty and the beast',
+book_ids=dict({456:'the beauty and the beast',          #dict for book names and IDS
                111: 'Will',
                 112: 'Mind without fear',
 113: 'The silent patient',
@@ -38,11 +36,11 @@ book_ids=dict({456:'the beauty and the beast',
 
 def speak(audio):
     engine.say(audio)
-    engine.runAndWait()
+    engine.runAndWait()         #without this speech won't be audible for us
 
 
 def takecommand():
-    r = sr.Recognizer()
+    r = sr.Recognizer()                 #It takes input from user's mic and returns string output
 
     with sr.Microphone() as source:
         print("Speak anything: ")
@@ -52,19 +50,17 @@ def takecommand():
         
         try:
             print("Recognizing...")
-            query = r.recognize_google(audio, language='en-in')
-            print(f"User said: {query}\n")
+            query = r.recognize_google(audio, language='en-in')     #Using google for voice recognition.
+            print(f"User said: {query}\n")      #User query will be printed.
 
         except Exception as e:
             # print(e)
-            print("Say that again please...")
-            return "None"
+            print("Say that again please...")       #Say that again will be printed in case of improper voice
+            return "None"           #None string will be returned
         return query
 
 
-
-
-def wishMe():
+def wishMe():                   #function to greet user acc to time HOUR in 24hr format obtained using datetime module
     hour = int(datetime.datetime.now().hour)
     if hour >= 0 and hour < 12:
         speak("Good Morning!")
@@ -83,7 +79,7 @@ bookid_found=False
 if __name__ == '__main__':
     wishMe()
     while True:
-        query = takecommand().lower()
+        query = takecommand().lower()           #Converting user query into lower case
 
         if 'return book' in query:
             while True:
