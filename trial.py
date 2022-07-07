@@ -8,7 +8,7 @@ engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('volume', 1.0)
 # print(voices[1].id)
-engine.setProperty('voice', voices[0].id)
+engine.setProperty('voice', voices[1].id)
 
 student_ids = dict({16010321005: 'Dhruv Bhagatkar',
                     16010321006: 'Sharang Chandak',
