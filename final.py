@@ -83,21 +83,28 @@ if __name__ == '__main__':
 
         if 'return book' in query:
             while True:
+                speak("Enter Student ID")
                 student_id = int(input("Enter Student ID: "))
                 if student_id in student_ids:
                     print("ID Found!")
+                    speak("Student ID Found!")
                     id_found=True 
                 else:
                     print("Enter Student ID again!")
-                while id_found==True:    
+                    speak("enter Student ID again!")
+                while id_found==True:
+                    speak("Enter Book ID ")    
                     book_id=int(input("Enter Book ID: "))
                     if book_id in book_ids:
                         print("Book found!")
+                        speak("Book ID found")
                         bookid_found=True
                     else:
                         print("Enter book id again!")
+                        speak("enter bookid again")
                     while bookid_found==True:
                         print("book returned")
+                        speak("book returned")
                         break
                     break    
             break
@@ -105,41 +112,55 @@ if __name__ == '__main__':
         if 'boro book' in query:
             while True:
                 student_id = int(input("Enter Student ID: "))
+                speak("enter Student ID")
                 if student_id in student_ids:
                     print("ID Found!")
+                    speak("student ID found")
                     id_found=True 
                 else:
                     print("Enter Student ID again!")
+                    speak("enter student id again")
                 while id_found==True:    
+                    speak("enter Book id")
                     book_id=int(input("Enter Book ID: "))
                     if book_id in book_ids:
+                        speak("book id found")
                         print("Book found!")
                         bookid_found=True
                     else:
                         print("Enter book id again!")
+                        speak("enter book id again")
                     while bookid_found==True:
                         print("book BORROWED!")
+                        speak("book borrowed")
                         break
                     break    
             break
         
         if 'renu book' in query:
             while True:
+                speak("enter student ID")
                 student_id = int(input("Enter Student ID: "))
                 if student_id in student_ids:
                     print("ID Found!")
+                    speak("student ID found")
                     id_found=True 
                 else:
                     print("Enter Student ID again!")
-                while id_found==True:    
+                    speak("enter Student id again")
+                while id_found==True:
+                    speak("enter book id")    
                     book_id=int(input("Enter Book ID: "))
                     if book_id in book_ids:
                         print("Book found!")
+                        speak("book id found")
                         bookid_found=True
                     else:
                         print("Enter book id again!")
+                        speak("enter book id again")
                     while bookid_found==True:
                         print("book renewed!")
+                        speak("book renewed")
                         break
                     break    
             break
