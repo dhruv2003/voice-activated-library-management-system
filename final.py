@@ -9,8 +9,6 @@ engine.setProperty('volume', 1.0)       #setting volume
 engine.setProperty('voice', voices[1].id)     #set voice 
 
 student_ids = dict({16010321005: 'Dhruv Bhagatkar',     #dict for student names
-                    16010321006: 'Sharang Chandak',
-                    16010321007: 'Aditya Chaudhari',
                     16010321008: 'Soham Chindarkar',
                     16010321009: 'Sammod Date',
                     16010321010: 'Yashvi Desai',
